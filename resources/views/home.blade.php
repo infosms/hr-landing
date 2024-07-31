@@ -40,7 +40,7 @@
                             <span @if ($loop->first) class="active" @endif>{{ $t->getTranslatedAttribute('title', app()->getLocale(), 'ru') }}</span>
                         @endforeach
                     </h2>
-                    <div class="product__items">
+                    <div class="product__items" style="grid-template-columns: repeat({{count($aboutProduct)}}, 1fr)">
                         @foreach($aboutProduct as $item)
                             <a href="/products/{{$item -> id}}" class="product__item">
                                 <div class="product__item-box">
@@ -52,7 +52,7 @@
                                         <div class="product__item-btn">{{__('messages.read_more')}}</div>
                                     </div>
                                 </div>
-                            
+
                             </a>
                         @endforeach
                     </div>
@@ -114,11 +114,11 @@
                                         </div>
                                         <div class="benefits__item-wrap">
                                             <div class="benefits__item-title">{{ $item->getTranslatedAttribute('title', app()->getLocale(), 'ru')}}</div>
-                                            <div style="margin-top: 20px;" class="benefits__item-text">   {!! $item->getTranslatedAttribute('text_front', app()->getLocale(), 'ru')!!}</div>    
+                                            <div style="margin-top: 20px;" class="benefits__item-text">   {!! $item->getTranslatedAttribute('text_front', app()->getLocale(), 'ru')!!}</div>
                                         </div>
-                                 
+
                                     </div>
-                                    
+
                                     <div class="benefits__item-back">
                                         <div class="benefits__item-icon">
                                             <img src="/storage/{{ $item->icon}}" alt=""/>
@@ -213,15 +213,15 @@
             class="reviews__item"
             data-fancybox="{{ 'gallery-' . $review->id }}"
             data-src="/storage/{{$firstImage}}"
-        >   
+        >
             @if(count($images) > 1)
                 <div class="reviews__item-gallery" hidden>
                     @foreach(array_slice($images, 1) as $image) {{-- Start from the second image --}}
-                        <img 
+                        <img
                         src="/storage/{{$image}}"
                         data-fancybox="{{ 'gallery-' . $review->id }}"
                         data-src="/storage/{{$image}}"
-                        alt="" 
+                        alt=""
                         >
                     @endforeach
                 </div>
