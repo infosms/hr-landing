@@ -18,8 +18,7 @@ use App\Http\Controllers\DemoController;
 
 Route::group(
     [
-//        'prefix' => LaravelLocalization::setLocale(),
-        'prefix' => 'ru',
+        'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function () {
 
