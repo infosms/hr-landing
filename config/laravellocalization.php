@@ -349,4 +349,6 @@ return [
     'urlsIgnored' => ['/skipped'],
 
     'httpMethodsIgnored' => ['POST', 'PUT', 'PATCH', 'DELETE'],
+
+    'default_locale' => 'ru',
 ];
