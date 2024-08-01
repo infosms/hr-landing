@@ -302,6 +302,18 @@
         // Your custom settings go here
     });
 </script>
+<script>
+    function removeStyle() {
+        const productItems = document.querySelector('.product__items');
+        if (window.innerWidth <= 992 || window.innerWidth <= 1360) {
+            productItems.removeAttribute('style');
+        }
+    }
+
+    window.addEventListener('load', removeStyle);
+
+    window.addEventListener('resize', removeStyle);
+</script>
 <script src="{{ asset('js/jquery-3.6.0.min.js?_v=20240517140044') }}"></script>
 <script src="{{ asset('js/jquery.maskedinput.min.js?_v=20240517140044') }}"></script>
 <script src="{{ asset('js/jquery.fancybox.min.js?_v=20240517140044') }}"></script>

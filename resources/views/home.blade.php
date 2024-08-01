@@ -23,10 +23,24 @@
                     <div class="hero__img way way-element-drop">
                         @if(isset($hero->video[0]['download_link']))
                             <video controls="controls" autoplay muted loop class="lazy" >
-                                <source data-src="/storage/{{ asset($hero->video[0]['download_link']) }}" type="video/mp4"/>
+                                <source data-src="storage/{{ asset($hero->video[0]['download_link']) }}" type="video/mp4"/>
                             </video>
                         @endif
-                        <script>var promise = document.querySelector('.hero__img video').play();</script>
+{{--                        <script>var promise = document.querySelector('.hero__img video').play();</script>--}}
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var video = document.querySelector('.hero__img video');
+                                var src = video.querySelector('source').getAttribute('data-src');
+                                video.querySelector('source').setAttribute('src', src);
+                                video.load();
+                                var promise = video.play();
+                                if (promise !== undefined) {
+                                    promise.catch(error => {
+                                        console.error("Error attempting to play the video:", error);
+                                    });
+                                }
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -252,16 +266,3 @@
         </section>
     </main>
 @endsection
-
-<script>
-    function removeStyle() {
-        const productItems = document.querySelector('.product__items');
-        if (window.innerWidth <= 992 || window.innerWidth <= 1360) {
-            productItems.removeAttribute('style');
-        }
-    }
-
-    window.addEventListener('load', removeStyle);
-
-    window.addEventListener('resize', removeStyle);
-</script>
