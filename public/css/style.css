@@ -1036,7 +1036,7 @@ select {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     opacity: 0;
-    transition: 0.1s;  
+    transition: 0.1s;
     animation: animateBox 2s ease-in-out infinite;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08)
 }
@@ -1065,7 +1065,7 @@ select {
   {
     transform: translateY(10px);
   }
-  
+
   50%
   {
     transform: translate(-10px);
@@ -1203,7 +1203,7 @@ select {
     width: 100%;
     border-radius: 24px;
     overflow: hidden;
-    max-height: 590px;
+    /*max-height: 590px;*/
 }
 
 .video__block::after {
@@ -2274,7 +2274,7 @@ select {
     .banner__title {
         font-size: 20px;
     }
-    
+
     .footer__container {
         flex-direction: column;
     }
@@ -2374,7 +2374,7 @@ select {
         /* margin-top: 10px; */
     }
 
-    .product__item .product__item-box::before, 
+    .product__item .product__item-box::before,
     .product__item .product__item-box::after {
         left: 50%;
         transform: rotate(0) translate(-50%, -50%);

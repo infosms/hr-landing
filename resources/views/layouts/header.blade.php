@@ -24,16 +24,16 @@ $elements = \App\Models\Elements::first();
                         <a href="/resources" class="header__nav-link">{{ __('messages.resources') }}</a>
                     </li>
                 </ul>
-                <div class="header__lang">
-                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="header__lang-item{{ App::getLocale() == $localeCode ? ' active' : '' }}">
-                            {{ $properties['native'] }}
-                        </a>
-                    @endforeach
-                </div>
+{{--                <div class="header__lang" style="display: none">--}}
+{{--                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+{{--                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="header__lang-item{{ App::getLocale() == $localeCode ? ' active' : '' }}">--}}
+{{--                            {{ $properties['native'] }}--}}
+{{--                        </a>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
             </nav>
             <div class="header__controls">
-                <a href="{{$elements->login_link}}" target="_blank" class="header__login white-btn">{{ __('messages.login') }}</a>
+                <a href="{{$elements->login_link}}" style="display: none" target="_blank" class="header__login white-btn">{{ __('messages.login') }}</a>
                 <a href="#" class="header__demo black-btn">{{ __('messages.request_demo') }}</a>
             </div>
             <div class="burger" id="menu-icon">

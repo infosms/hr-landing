@@ -252,3 +252,16 @@
         </section>
     </main>
 @endsection
+
+<script>
+    function removeStyle() {
+        const productItems = document.querySelector('.product__items');
+        if (window.innerWidth <= 992 || window.innerWidth <= 1360) {
+            productItems.removeAttribute('style');
+        }
+    }
+
+    window.addEventListener('load', removeStyle);
+
+    window.addEventListener('resize', removeStyle);
+</script>
